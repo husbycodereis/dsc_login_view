@@ -44,40 +44,41 @@ class _LoginScreenState extends State<LoginScreen> {
           height: appSize.height,
         ),
         buildWaveBackground(imageLink),
-        Positioned(
-          top: 0,
-          left: 0,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 50.0, top: 100),
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.asset(
-                      'assets/login_icon.png',
-                      width: 60,
-                      height: 60,
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 100),
-                    child: Text(
-                      'DSC Flutter Summit Login Ekrani',
-                      overflow: TextOverflow.ellipsis,
-                      style: appTextTheme.headline3,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
+        buildStackColumn(appTextTheme),
         buildBottomContainer(appSize, appTextTheme)
       ],
     ));
+  }
+
+  Positioned buildStackColumn(TextTheme appTextTheme) {
+    return Positioned(
+      top: 0,
+      left: 0,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 40.0, top: 80),
+        child: Container(
+          width: 300,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(
+                  'assets/login_icon.png',
+                  width: 60,
+                  height: 60,
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'DSC Flutter Summit Login Ekrani',
+                style: appTextTheme.headline3,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Positioned buildWaveBackground(String imageLink) {
